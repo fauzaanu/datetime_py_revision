@@ -1,16 +1,35 @@
-# This is a sample Python script.
+# Reading the docs for Lib/datetime.py
+import datetime
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+if __name__ == "__main__":
+    #  The rules for time adjustment across the world are more political than rational, change frequently, and there is no standard suitable for every application aside from UTC
+    #  use UTC for all internal timekeeping, and only convert to local time when interacting with humans
 
+    # CONSTANTS
+    # minyear = datetime.MINYEAR
+    # maxyear = datetime.MAXYEAR
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+    # TYPES
+    # datetime.date : always aware
+    # datetime.time : may be aware or naive
+    # datetime.datetime : may be aware or naive
+    #
+    # datetime.timedelta
+    #
+    # datetime.tzinfo
+    # datetime.timezone
 
+    # html datetime input field would send the following:
+    # 2018-06-29T08:15:00
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+    # time = "2018-06-29T08:15:00"
+    # dt = datetime.datetime.fromisoformat(time)
+    # print(dt)
+    # print(type(dt))
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    starttime = "2018-06-29T08:15:00"
+    endtime = "2018-06-29T08:30:00"
+    dt1 = datetime.datetime.fromisoformat(starttime)
+    dt2 = datetime.datetime.fromisoformat(endtime)
+    minutes = (dt2 - dt1).seconds / 60
+    print(minutes)
